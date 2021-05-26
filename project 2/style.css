@@ -52,7 +52,12 @@ body {
   animation: color 4s infinite alternate;
 
   position: absolute;
+
+  transition: all 500ms ease-in-out;
   
+}
+.card:hover {
+  transform: scale(1.1);
 }
 
 @keyframes color {
