@@ -21,6 +21,8 @@ body,
 body {
   width: 100%;
   height: 100vh;
+  background: url('bg-img.svg');
+  background-repeat: no-repeat;
 }
 
 .cards {
@@ -29,7 +31,7 @@ body {
 }
 
 .card {
-  width: 100%;
+  width: 50%;
 
   padding: 3rem;
 
@@ -40,15 +42,17 @@ body {
     #c850c0 46%,
     #ffcc70 100%
   );
-  background-size: 250%;
+  background-size: 300%;
 
   border-radius: 70px;
 
   position: relative;
 
-  box-shadow: 50px 50px 100px #5a5a5a, -50px -50px 100px #ffffff;
 
   animation: color 4s infinite alternate;
+
+  position: absolute;
+  
 }
 
 @keyframes color {
@@ -63,8 +67,8 @@ body {
 
 
 .picture .img {
-  width: 12rem;
-  height: 12rem;
+  width: clamp(10rem, 15vw, 12vw);
+  height: clamp(10rem, 15vw, 12vw);
 
   margin: 1.5rem;
 
@@ -104,17 +108,79 @@ hr {
   border-radius: 100px;
 }
 
+i {
+  background-color: rgba(255, 255, 255, 0.26);
+  color: #fff;
+  padding: .5rem;
+  border-radius: 100px;
+
+  position: absolute;
+  bottom: 47%;
+
+  cursor: pointer;
+
+  transition: all 200ms;
+}
+i:hover {
+  background-color: transparent
+}
+i:active {
+  background-color: rgba(255, 255, 255, 0.26);
+}
+.left {
+  left: 20%;
+}
+.right {
+  right : 20%;
+}
+
+
+.slideleft,.slideright {
+}
+.slideleft {
+  animation: slideleft 500ms;
+}
+.slideright {
+  animation: slideright 500ms;
+}
+
+@keyframes slideleft {
+  to {
+    transform:translateX(0);
+  }
+  from {
+    transform:translateX(-50px);
+    opacity:0;
+  }
+}
+@keyframes slideright {
+  to {
+    transform:translateX(0);
+  }
+  from {
+    transform:translateX(50px);
+    opacity:0;
+  }
+}
 
 
 
 
 
 @media (max-width: 900px) {
-  .cards {
-    width: 70%;
+  .card {
+    width: 80%;
+  }
+  i {
+    bottom: 40%;
+  }
+  .left {
+    left: 12%;
+  }
+  .right {
+    right: 12%;
   }
   .card {
     flex-direction: column;
   }
-  
 }
