@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Sarabun", Arial;
+  height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 600px) {
+  body {
+    height: auto;
+  }
+}
+body .container {
+  max-width: 800px;
+  width: 90%;
+  border: 5px solid white;
+  padding: 2rem;
+  border-radius: 20px;
+}
+@media (max-width: 600px) {
+  body .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+  }
+  body .container * {
+    width: 90%;
+  }
+}
+body .container .search {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+@media (max-width: 600px) {
+  body .container .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  body .container .search * {
+    margin: 10px 0;
+  }
+}
+body .container .search input {
+  max-width: 100%;
+  width: 90%;
+  padding: 1.2rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+}
+body .container .search input::placeholder {
+  color: white;
+}
+body .container .search input:focus {
+  outline: none;
+}
+body .container .search input.hot {
+  background-image: linear-gradient(98.14deg, #eb5757 0.03%, #ed6c53 21.77%, #ef7e4f 47.2%, #f2994a 88.21%);
+}
+body .container .search input.day {
+  background-image: linear-gradient(114.98deg, #2f80ed -20.15%, #56ccf2 116.16%);
+}
+body .container .search input.night {
+  background-image: linear-gradient(117.2deg, #43275e -54.2%, #2f80ed 236.08%);
+}
+body .container .search button {
+  padding: 1rem 2rem;
+  max-width: 150px;
+  margin: 0 0 0 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.301);
+  transition: box-shadow 200ms;
+}
+body .container .search button:active {
+  box-shadow: none;
+}
+body .container .search button.red {
+  color: red;
+}
+body .container .search button.blue {
+  color: #3077a7;
+}
+body .container .error {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: white;
+  transition: all 1s ease-in-out;
+}
+body .container .display-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+@media (max-width: 600px) {
+  body .container .display-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  body .container .display-info * {
+    margin: 10px 0;
+  }
+}
+body .container .display-info .temp {
+  color: white;
+}
+body .container .display-info .temp div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+body .container .display-info .temp div * {
+  margin: 12px 5px;
+}
+body .container .display-info .temp div img {
+  width: 30px;
+}
+body .container .display-info .temp div h1 {
+  line-height: 0;
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+body .container .display-info .location * {
+  color: white;
+  text-align: center;
+  margin: 5px 0;
+}
+body .container .display-info .location * * {
+  line-height: 0;
+}
+body .container .display-info .location h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-style: italic;
+}
+body .container .display-info .location h6 {
+  font-size: 1.3rem;
+}
+body .container .display-info .extra-info {
+  color: white;
+}
+body .container .display-info .extra-info div {
+  font-style: italic;
+  margin: 10px 0;
+}
+body .container .display-info .extra-info div * {
+  line-height: 0;
+}
+body .container .display-info .extra-info .feels {
+  font-size: 1.6rem;
+}
+body .container .display-info .extra-info .feels .bold {
+  font-size: 2rem;
+}
+body .container .display-info .extra-info .humid {
+  font-size: 1.3rem;
+}
+body .container .display-info .extra-info .humid .bold {
+  font-size: 1.7rem;
+}
+body .container .display-info .extra-info .last-update {
+  font-size: 1rem;
+}
+body .container .display-info .extra-info .last-update .bold {
+  font-size: 1.2rem;
+}
+body .container .display-info .extra-info .current-date {
+  font-size: 1rem;
+}
+body .container .more-info * {
+  color: white;
+}
+body .container .more-info .wind-direction {
+  font-size: 1;
+  margin: 10px 10px;
+}
+
+.bold {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.hot {
+  background-image: linear-gradient(277.74deg, #eb5757 -20.32%, #ed6c53 10.22%, #ef7e4f 45.93%, #f2994a 103.54%);
+}
+
+.day {
+  background-image: linear-gradient(290.8deg, #2f80ed 13.21%, #56ccf2 103.94%);
+}
+
+.night {
+  background-image: linear-gradient(111.47deg, #2f80ed -3.61%, #324385 46.22%, #34193e 101.93%);
+}
+
+.hot, .day, .night, body {
+  background-size: 300%;
+  animation: color 4s infinite alternate;
+  transition: all 500ms ease-in-out;
+}
+
+@keyframes color {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}

@@ -1,0 +1,36 @@
+air_quality: {co: 400.5, no2: 2.200000047683716, o3: 177.39999389648438, so2: 5.300000190734863, pm2_5: 82.69999694824219, …}
+cloud: 50
+condition: {text: "Mist", icon: "//cdn.weatherapi.com/weather/64x64/day/143.png", code: 1030}
+feelslike_c: 41.4
+feelslike_f: 106.6
+gust_kph: 7.6
+gust_mph: 4.7
+humidity: 32
+is_day: 1
+last_updated: "2021-06-11 15:00"
+last_updated_epoch: 1623405600
+precip_in: 0
+precip_mm: 0.1
+pressure_in: 29.7
+pressure_mb: 991
+temp_c: 41
+temp_f: 105.8
+uv: 11
+vis_km: 4
+vis_miles: 2
+wind_degree: 360
+wind_dir: "N"
+wind_kph: 22
+wind_mph: 13.6
+__proto__: Object
+ 
+ 
+{name: "Peshawar", region: "North-West Frontier", country: "Pakistan", lat: 34.01, lon: 71.57, …}
+country: "Pakistan"
+lat: 34.01
+localtime: "2021-06-11 16:05"
+localtime_epoch: 1623409526
+lon: 71.57
+name: "Peshawar"
+region: "North-West Frontier"
+tz_id: "Asia/Karachi"

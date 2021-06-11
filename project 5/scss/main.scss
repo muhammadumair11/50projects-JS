@@ -1,0 +1,248 @@
+@import "colors";
+@import "fonts";
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+@mixin flex($x: center, $y: center, $dir: row) {
+	display: flex;
+	justify-content: $x;
+	align-items: $y;
+	flex-direction: $dir;
+}
+
+body {
+	font-family: $font;
+    height: 100vh;
+    padding: 2rem 0;
+
+    @media (max-width:600px) {
+        height: auto;
+    }
+
+	@include flex();
+
+	.container {
+		max-width: 800px;
+		width: 90%;
+
+        border: 5px solid white;
+        padding: 2rem;
+        border-radius: 20px;
+
+        @media (max-width:600px) {
+                @include flex(space-between, center, column);
+                padding: 0;
+
+                * {
+                    width: 90%;
+                }
+                
+        }
+
+		.search {
+			padding: 1rem 0;
+
+			@include flex(space-between, center, row);
+            
+            @media (max-width:600px) {
+                * {
+                    margin: 10px 0;
+                }
+                @include flex(space-between, center, column);
+
+                
+                
+            }
+
+			input {
+                max-width: 100%;
+				width: 90%;
+				padding: 1.2rem 1.5rem;
+				border: none;
+				border-radius: 20px;
+
+				color: white;
+
+				font-size: 1rem;
+
+				&::placeholder {
+					color: white;
+				}
+				&:focus {
+					outline: none;
+				}
+			}
+			input.hot {
+				background-image: $hot-input;
+			}
+			input.day {
+				background-image: $normal-input;
+			}
+			input.night {
+				background-image: $night-input;
+			}
+			button {
+				padding: 1rem 2rem;
+                max-width: 150px;
+				margin: 0 0 0 1rem;
+
+				border: none;
+				border-radius: 20px;
+
+				font-size: 1rem;
+				font-weight: $bold;
+
+				box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.301);
+				transition: box-shadow 200ms;
+
+				&:active {
+					box-shadow: none;
+				}
+			}
+			button.red {
+				color: red;
+			}
+			button.blue {
+				color: rgb(48, 119, 167);
+			}
+		}
+        .error {
+            font-size: 2rem;
+            font-weight: $bold;
+            text-align: center;
+            color: white;
+            transition: all 1s ease-in-out;
+            
+        }
+        .display-info {
+            @include flex(space-between,flex-start,row);
+
+            @media (max-width:600px) {
+                * {
+                    margin: 10px 0;
+                }
+                @include flex(space-between, center, column);
+                
+            }
+            .temp {
+                color: white;
+
+                div {
+                    @include flex(space-between,center);
+
+                    * {
+                        margin: 12px 5px;
+                    }
+                    img {
+                        width: 30px;
+                    }
+                    h1 {
+                        line-height: 0;
+                        font-size: clamp(3rem, 5vw, 4rem);
+                    }
+                }
+            }
+            .location {
+                * {
+                    color: white;
+                    text-align: center;
+                    margin: 5px 0;
+
+                    * {
+                        line-height: 0;
+                    }
+                }
+                h3 {
+                    font-size: 3rem;
+                    font-weight: $bold;
+                    font-style: $italic;
+                }
+                h6 {
+                    font-size: 1.3rem;
+                }
+            }
+            .extra-info {
+                color: white;
+
+                div {
+                    font-style: italic;
+                    margin: 10px 0;
+
+                    * {
+                        line-height: 0;
+                    }
+                }
+                .feels {
+                    font-size: 1.6rem;
+                    .bold {  
+                        font-size: 2rem;
+                    }
+                }
+                .humid {
+                    font-size: 1.3rem;
+                    .bold {  
+                        font-size: 1.7rem;
+                    }
+                }
+                .last-update {
+                    font-size: 1rem;
+                    .bold {  
+                        font-size: 1.2rem;
+                    }
+                }
+                .current-date {
+                        font-size: 1rem;
+                }
+            }
+        }
+
+        .more-info {
+            * {
+                color: white;
+            }
+
+            .wind-direction {
+                font-size: 1;
+                margin: 10px 10px;
+            }
+        }
+	}
+}
+
+.bold {
+    font-weight: $bold;
+    font-style: normal;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.hot {
+    background-image: $hot-weather-color;
+}
+.day {
+    background-image: $normal-weather-color;
+}
+.night {
+    background-image: $night-weather-color;
+}
+
+.hot,.day,.night, body {
+	background-size: 300%;
+	animation: color 4s infinite alternate;
+	transition: all 500ms ease-in-out;
+}
+
+@keyframes color {
+	0% {
+		background-position: left;
+	}
+	100% {
+		background-position: right;
+	}
+}
