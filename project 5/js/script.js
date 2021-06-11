@@ -54,7 +54,7 @@ const dataFunc = async () => {
 		};
 
 		const response = await fetch(
-			`http://api.weatherapi.com/v1/current.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes`, config)
+			`https://api.weatherapi.com/v1/current.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes`, config)
 			
             const data = await response.json();
             let { current, location } = data;
