@@ -25,11 +25,11 @@ function update(current, location) {
 }
 
 btn.addEventListener("click", () => {
-    dataFunc();
+	dataFunc();
 });
 
 const dataFunc = async () => {
-    let city = input.value.toLowerCase();
+	let city = input.value.toLowerCase();
 	if (city) {
 		const config = {
 			method: "GET",
@@ -54,11 +54,14 @@ const dataFunc = async () => {
 		};
 
 		const response = await fetch(
-			`https://api.weatherapi.com/v1/current.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes`, config)
-			
-            const data = await response.json();
-            let { current, location } = data;
-            update(current, location);
+			`https://api.weatherapi.com/v1/current.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes
+`,
+			config
+		);
+
+		const data = await response.json();
+		let { current, location } = data;
+		update(current, location);
 	} else {
 		document.querySelector(".error").innerText = "Please Insert a City Name";
 		setTimeout(() => {
