@@ -54,7 +54,7 @@ function update(current, location, forecast) {
 
 	status.innerText = currentcondition;
 	city.innerText = name;
-	country.innerText = country;
+	countryLocation.innerText = country;
 
 	feelLike.innerText = `${currentfeelslike_c} C`;
 	humidity.innerText = `${currenthumidity} %`;
@@ -64,8 +64,8 @@ function update(current, location, forecast) {
 
 	windDirection.innerText = currentdir;
 
-	maxTemp.innerText = maxtemp_c;
-	minTemp.innerText = mintemp_c;
+	maxTemp.innerText = maxtemp_c + " C";
+	minTemp.innerText = mintemp_c + " C";
 
 	//Background color check 
 

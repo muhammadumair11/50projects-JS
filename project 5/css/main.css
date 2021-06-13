@@ -174,6 +174,9 @@ body .container .display-info .temp div h1 {
   line-height: 1;
   font-size: clamp(2rem, 5vw, 4rem);
 }
+body .container .display-info .location {
+  padding: 0 1rem;
+}
 body .container .display-info .location * {
   color: white;
   margin: 5px 0;
@@ -188,14 +191,14 @@ body .container .display-info .location * * {
   }
 }
 body .container .display-info .location h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 body .container .display-info .location h6 {
   font-size: 1.3rem;
 }
 body .container .display-info .location h1 {
   font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.3rem);
 }
 body .container .display-info .extra-info {
   color: white;
@@ -280,6 +283,7 @@ body .container .hours {
 body .container .hours .hour {
   color: white;
   margin: 0 10px;
+  text-align: center;
 }
 body .container .hours .hour * {
   width: max-content;
@@ -289,7 +293,7 @@ body .container .hours .hour .temp {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 body .container .hours .hour .temp .img {
   width: 35px;
@@ -306,9 +310,10 @@ body .container .hours .hour .temp h1 {
 body .container .hours .hour .condition {
   font-weight: 400;
   font-size: 1rem;
-  margin: 5px 0;
+  margin: 2px auto;
 }
 body .container .hours .hour .time {
+  margin: 0 auto;
   font-size: 0.9rem;
   font-weight: 300;
 }

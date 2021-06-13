@@ -14,7 +14,7 @@ const fehranhite = document.querySelector(".feh h1");
 
 const status = document.querySelector(".location h1");
 const city = document.querySelector(".location h3");
-const country = document.querySelector(".location h6");
+const countryLocation = document.querySelector(".location h6");
 
 //Extra info
 
