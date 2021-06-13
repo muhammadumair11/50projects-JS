@@ -18,12 +18,12 @@
 
 body {
 	font-family: $font;
-    height: 100vh;
-    padding: 2rem 0;
+	height: 100vh;
+	padding: 2rem 0;
 
-    @media (max-width:600px) {
-        height: auto;
-    }
+	@media (max-width: 600px) {
+		height: auto;
+	}
 
 	@include flex();
 
@@ -31,38 +31,38 @@ body {
 		max-width: 900px;
 		width: 90%;
 
-        border: 5px solid white;
-        padding: 2rem;
-        border-radius: 20px;
+		border: 5px solid white;
+		padding: 2rem;
+		border-radius: 20px;
 
-        @media (max-width:600px) {
-                @include flex(space-between, center, column);
-                padding: 0;
+		@media (max-width: 600px) {
+			@include flex(space-between, center, column);
+			padding: 0;
+			border: none;
+			padding: 0rem;
+			width: 100%;
 
-                * {
-                    width: 90%;
-                }
-                
-        }
+			* {
+				width: 100%;
+			}
+		}
 
 		.search {
-			padding: 1rem 0;
+			padding: 1rem 10px;
 
 			@include flex(space-between, center, row);
-            
-            @media (max-width:600px) {
-                * {
-                    margin: 10px 0;
-                }
-                @include flex(space-between, center, column);
 
-                
-                
-            }
+			@media (max-width: 600px) {
+				* {
+					margin: 10px 0;
+				}
+				@include flex(space-between, center, row);
+			}
 
 			input {
-                max-width: 100%;
-				width: 90%;
+				max-width: 100%;
+				width: 100%;
+				margin: 0 5px;
 				padding: 1.2rem 1.5rem;
 				border: none;
 				border-radius: 20px;
@@ -71,13 +71,13 @@ body {
 
 				font-size: 1rem;
 
-                box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.301);
+				box-shadow: 3px 5px 5px rgba(0, 0, 0, 0.301);
 
 				&::placeholder {
 					color: white;
 				}
 				&:focus {
-                    box-shadow: none;
+					box-shadow: none;
 					outline: none;
 				}
 			}
@@ -91,9 +91,10 @@ body {
 				background-image: $night-input;
 			}
 			button {
-				padding: 1rem 2rem;
-                max-width: 150px;
-				margin: 0 0 0 1rem;
+				padding: 1rem 0;
+				min-width: 100px;
+				width: 80px;
+				margin: 0 5px;
 
 				border: none;
 				border-radius: 20px;
@@ -115,130 +116,236 @@ body {
 				color: rgb(48, 119, 167);
 			}
 		}
-        .error {
-            font-size: 2rem;
-            font-weight: $bold;
-            text-align: center;
-            color: white;
-            transition: all 1s ease-in-out;
-            
-        }
-        .display-info {
-            @include flex(space-between,flex-start,row);
+		.error {
+			font-size: 2rem;
+			font-weight: $bold;
+			text-align: center;
+			color: white;
+			transition: all 1s ease-in-out;
+		}
+		.display-info {
+			@include flex(space-between, flex-start, row);
 
-            @media (max-width:600px) {
-                * {
-                    margin: 10px 0;
-                }
-                @include flex(space-between, center, column);
-                
-            }
-            .temp {
-                color: white;
+			@media (max-width: 600px) {
+				* {
+					margin: 10px 0;
+				}
+				@include flex(space-between, center, column);
+			}
+			.temp {
+				color: white;
+				@media (max-width: 600px) {
+					@include flex(space-aroundcenter, row);
+					width: max-content;
 
-                div {
-                    @include flex(space-between,center);
+					img {
+						width: 40px;
+						height: 40px;
+					}
+				}
 
-                    * {
-                        margin: 12px 5px;
-                    }
-                    img {
-                        width: 30px;
-                    }
-                    h1 {
-                        line-height: 0;
-                        font-size: clamp(3rem, 5vw, 4rem);
-                    }
-                }
-            }
-            .location {
-                * {
-                    color: white;
-                    text-align: center;
-                    margin: 5px 0;
+				div {
+					@include flex(space-between, center, row);
 
-                    * {
-                        line-height: 0;
-                    }
-                }
-                h3 {
-                    font-size: 3rem;
-                    font-weight: $bold;
-                    font-style: $italic;
-                }
-                h6 {
-                    font-size: 1.3rem;
-                }
-            }
-            .extra-info {
-                color: white;
+					* {
+						margin: 12px 5px;
+						width: max-content;
+					}
+					.img {
+						width: 50px;
+						height: 50px;
+						border-radius: 100px;
+						background-size: 80%;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-position: contain;
+					}
+					h1 {
+						font-family: $font;
+						font-weight: $bold;
+						line-height: 1;
+						font-size: clamp(2rem, 5vw, 4rem);
+					}
+				}
+			}
+			.location {
+				* {
+					color: white;
+					margin: 5px 0;
+					font-weight: $light;
 
-                div {
-                    font-style: italic;
-                    margin: 10px 0;
+					* {
+						line-height: 0;
+					}
+					@media (max-width: 600px) {
+						padding-left: 2rem;
+					}
+				}
 
-                    * {
-                        line-height: 0;
-                    }
-                }
-                .feels {
-                    font-size: 1.6rem;
-                    .bold {  
-                        font-size: 2rem;
-                    }
-                }
-                .humid {
-                    font-size: 1.3rem;
-                    .bold {  
-                        font-size: 1.7rem;
-                    }
-                }
-                .last-update {
-                    font-size: 1rem;
-                    .bold {  
-                        font-size: 1.2rem;
-                    }
-                }
-                .current-date {
-                        font-size: 1rem;
-                }
-            }
-        }
+				h3 {
+					font-size: 2rem;
+				}
+				h6 {
+					font-size: 1.3rem;
+				}
+				h1 {
+					font-weight: $bold;
+					font-size: clamp(2rem, 5vw, 3rem);
+				}
+			}
+			.extra-info {
+				color: white;
 
-        .more-info {
-            * {
-                color: white;
-            }
+				div {
+					margin: 10px 0;
 
-            .wind-direction {
-                font-size: 1;
-                margin: 10px 10px;
-            }
-        }
+					* {
+						font-family: $font;
+						font-weight: $light;
+						line-height: 0;
+					}
+				}
+				.feels {
+					font-weight: $regular;
+					font-size: 1.6rem;
+					.bold {
+						font-size: 2rem;
+					}
+				}
+				.last-update {
+					font-size: 1rem;
+					.bold {
+						font-size: 1.3rem;
+					}
+				}
+				.wind-direction {
+					font-size: 0.9rem;
+					.bold {
+						font-size: 1rem;
+					}
+				}
+				.humid {
+					font-size: 1rem;
+					.bold {
+						font-size: 1rem;
+					}
+				}
+
+				.current-date {
+					font-size: 0.8rem;
+				}
+				@media (max-width: 600px) {
+					padding-left: 2rem;
+				}
+			}
+		}
+
+		.more-info {
+			@include flex(space-around, center, row);
+			* {
+				color: white;
+			}
+			h1 {
+				font-size: clamp(1.5rem, 2vw, 2rem);
+				margin: 10px 0;
+				font-weight: $light;
+
+				.bold {
+					font-size: clamp(1.5rem, 2vw, 2rem);
+				}
+			}
+			@media (max-width: 600px) {
+				padding-left: 2rem;
+				@include flex(space-between, center, column);
+			}
+		}
+		.hours {
+            padding: 1rem 0 ;
+			width: 100%;
+			overflow-x: scroll;
+			@include flex(flex-start, center, row);
+			text-align: center;
+			.hour {
+				color: white;
+				margin: 0 10px;
+				* {
+					width: max-content;
+				}
+				.temp {
+					@include flex(center, center, row);
+					margin: 10px 0;
+					.img {
+						width: 35px;
+						height: 35px;
+						border-radius: 100px;
+						background-size: 80%;
+						background-repeat: no-repeat;
+						background-position: cover;
+					}
+					h1 {
+						font-size: 1.5rem;
+						margin: 0 5px;
+					}
+				}
+				.condition {
+					font-weight: $regular;
+					font-size: 1rem;
+					margin: 5px 0;
+				}
+				.time {
+					font-size: 0.9rem;
+					font-weight: $light;
+				}
+			}
+		}
 	}
 }
 
 .bold {
-    font-weight: $bold;
-    font-style: normal;
-    font-size: 1.3rem;
-    color: white;
+	font-weight: $bold !important;
+	font-size: 1.3rem;
+	color: white;
 }
 
 .hot {
-    background-image: $hot-weather-color;
+	background-image: $hot-weather-color;
 }
 .day {
-    background-image: $normal-weather-color;
+	background-image: $normal-weather-color;
 }
 .night {
-    background-image: $night-weather-color;
+	background-image: $night-weather-color;
 }
 
-.hot,.day,.night, body {
+.hot,
+.day,
+.night,
+body {
 	background-size: 300%;
 	animation: color 4s infinite alternate;
 	transition: all 500ms ease-in-out;
+}
+
+/* width */
+::-webkit-scrollbar {
+	margin-top: 1rem;
+	height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+	background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(85, 85, 85, 0.342);
 }
 
 @keyframes color {

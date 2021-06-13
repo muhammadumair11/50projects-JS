@@ -1,17 +1,73 @@
-function update(current, location) {
-	celcius.innerText = `${current.temp_c} C`;
-	fehranhite.innerText = `${current.temp_f} F`;
+function update(current, location, forecast) {
 
-	city.innerText = location.name;
-	country.innerText = location.country;
+	// Current Objects data destructuring 
+	let {
+		temp_c: currentTemp_c,
+		temp_f: currentTemp_f,
+		feelslike_c: currentfeelslike_c,
+		humidity: currenthumidity,
+		last_updated: currentlastupdated,
+		wind_dir: currentdir,
+	condition: {
+			icon: currentIcon,
+			text: currentcondition,
+		}
+	} = current;
+	
+	// Location Objects data destructuring 
 
-	feelLike.innerText = `${current.feelslike_c} C`;
-	humidity.innerText = `${current.humidity} %`;
+	let {
+		name,
+		country,
+		localtime
+	} = location
 
-	lastUpdate.innerText = current.last_updated.split(" ")[1];
-	currentDate.innerText = location.localtime.split(" ")[1];
+	//ForeCast Object destructuring
 
-	windDirection.innerText = current.wind_dir;
+	let { forecastday } = forecast;
+	let {
+		day : {maxtemp_c,mintemp_c,},
+		hour,
+	} = forecastday[0]
+
+	for (let i = 0; i < hour.length; i++) {
+		let {
+			temp_c,
+			condition: {text,icon},
+			time,
+		} = hour[i];
+		
+		hourImg[i].style.backgroundImage = `url(${icon})`;
+		hourTemp[i].innerText = temp_c + " C";
+		hourCondition[i].innerText = text;
+		hourTime[i].innerText = time.split(" ")[1];
+	}
+
+
+	//Assigning data
+
+	celcius.innerText = `${currentTemp_c} C`;
+	fehranhite.innerText = `${currentTemp_f} F`;
+	tempImg.forEach(img => {
+		img.style.backgroundImage = `url(${currentIcon})`;
+	});
+
+	status.innerText = currentcondition;
+	city.innerText = name;
+	country.innerText = country;
+
+	feelLike.innerText = `${currentfeelslike_c} C`;
+	humidity.innerText = `${currenthumidity} %`;
+
+	lastUpdate.innerText = currentlastupdated.split(" ")[1];
+	currentDate.innerText = localtime.split(" ")[1];
+
+	windDirection.innerText = currentdir;
+
+	maxTemp.innerText = maxtemp_c;
+	minTemp.innerText = mintemp_c;
+
+	//Background color check 
 
 	if (celcius.innerText > "38") {
 		addhotClass([body, input]);
@@ -22,6 +78,9 @@ function update(current, location) {
 	if (currentDate.innerText.split(":")[0] > "18") {
 		addnightClass([body, input]);
 	}
+
+	
+
 }
 
 btn.addEventListener("click", () => {
@@ -54,14 +113,18 @@ const dataFunc = async () => {
 		};
 
 		const response = await fetch(
-			`https://api.weatherapi.com/v1/current.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes
-`,
+			/*`https://api.weatherapi.com/v1/forcast.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes`*/
+
+			`https://api.weatherapi.com/v1/forecast.json?key= 92fc14d1c7824494a33191055211006&q=${city}&days=7&aqi=no&alerts=no`
+			,
 			config
 		);
 
 		const data = await response.json();
-		let { current, location } = data;
-		update(current, location);
+		
+		let { current, location, forecast } = data;
+		update(current,location,forecast);
+
 	} else {
 		document.querySelector(".error").innerText = "Please Insert a City Name";
 		setTimeout(() => {
