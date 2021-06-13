@@ -187,7 +187,13 @@ body .container .display-info .location * * {
 }
 @media (max-width: 600px) {
   body .container .display-info .location * {
+    padding: 0;
     padding-left: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  body .container .display-info .location {
+    padding: 0;
   }
 }
 body .container .display-info .location h3 {

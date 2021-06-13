@@ -178,8 +178,12 @@ body {
 						line-height: 0;
 					}
 					@media (max-width: 600px) {
+						padding: 0;
 						padding-left: 2rem;
 					}
+				}
+				@media (max-width: 600px) {
+					padding: 0;
 				}
 				padding: 0 1rem;
 				h3 {
