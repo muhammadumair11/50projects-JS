@@ -8,7 +8,7 @@ function update(current, location, forecast) {
 		humidity: currenthumidity,
 		last_updated: currentlastupdated,
 		wind_dir: currentdir,
-	condition: {
+		condition: {
 			icon: currentIcon,
 			text: currentcondition,
 		}
@@ -69,13 +69,13 @@ function update(current, location, forecast) {
 
 	//Background color check 
 
-	if (celcius.innerText > "38") {
+	if (currentTemp_c > "38") {
 		addhotClass([body, input]);
 	} else {
 		adddayClass([body, input]);
 	}
 
-	if (currentDate.innerText.split(":")[0] > "18") {
+	if (currentDate.innerText > "18") {
 		addnightClass([body, input]);
 	}
 
@@ -113,8 +113,6 @@ const dataFunc = async () => {
 		};
 
 		const response = await fetch(
-			/*`https://api.weatherapi.com/v1/forcast.json?key=92fc14d1c7824494a33191055211006&q=${city}&aqi=yes`*/
-
 			`https://api.weatherapi.com/v1/forecast.json?key= 92fc14d1c7824494a33191055211006&q=${city}&days=7&aqi=no&alerts=no`
 			,
 			config
