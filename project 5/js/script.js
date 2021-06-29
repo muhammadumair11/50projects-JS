@@ -75,7 +75,7 @@ function update(current, location, forecast) {
 		adddayClass([body, input]);
 	}
 
-	if (currentDate.innerText > "18") {
+	if (currentDate.innerText > "18" && currentDate.innerText < "5") {
 		addnightClass([body, input]);
 	}
 
