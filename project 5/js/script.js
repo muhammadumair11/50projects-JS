@@ -114,7 +114,7 @@ const dataFunc = async () => {
 		};
 
 		const response = await fetch(
-			`https://api.weatherapi.com/v1/forecast.json?key= d7320fa14fc649db858111925212909=${city}&days=7&aqi=no&alerts=no`
+			`https://api.weatherapi.com/v1/forecast.json?key=d7320fa14fc649db858111925212909&q=${city}&days=7&aqi=no&alerts=no`
 			,
 			config
 		);
